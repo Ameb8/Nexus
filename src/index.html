@@ -364,7 +364,6 @@ let boardLines=[];
 let unique=[];
 let N=0;
 let adj=[];
-let wallCell=[];
 let cornerIdx=[];
 let cellEls=[];
 let owner=[];
@@ -394,18 +393,6 @@ function buildCells(lines){
 function shareEdge(a,b){
   let s=0;
   for(const[ax,ay]of a)for(const[bx,by]of b){if(Math.abs(ax-bx)<2.5&&Math.abs(ay-by)<2.5)s++;if(s>=2)return true;}
-  return false;
-}
-
-// Wall detection
-const TRI_EDGES=[[[340,50],[46,572]],[[46,572],[634,572]],[[634,572],[340,50]]];
-function onTriEdge(px,py){
-  for(const[[x1,y1],[x2,y2]]of TRI_EDGES){
-    const dx=x2-x1,dy=y2-y1,len2=dx*dx+dy*dy;
-    const t=((px-x1)*dx+(py-y1)*dy)/len2;
-    if(t<-0.001||t>1.001)continue;
-    if(Math.abs(px-(x1+t*dx))<2&&Math.abs(py-(y1+t*dy))<2)return true;
-  }
   return false;
 }
 
@@ -439,8 +426,6 @@ function buildBoard(lines){
   N=unique.length;
   adj=Array.from({length:N},()=>[]);
   for(let i=0;i<N;i++)for(let j=i+1;j<N;j++)if(shareEdge(unique[i],unique[j])){adj[i].push(j);adj[j].push(i);}
-  wallCell=new Array(N).fill(false);
-  for(let i=0;i<N;i++)wallCell[i]=unique[i].some(([px,py])=>onTriEdge(px,py));
   cornerIdx=CORNERS.map(([cx,cy])=>{
     let best=-1,bestD=Infinity;
     for(let i=0;i<N;i++)for(const[px,py]of unique[i]){const d=Math.abs(px-cx)+Math.abs(py-cy);if(d<bestD){bestD=d;best=i;}}
@@ -517,28 +502,24 @@ function findEnclosed(p){
       comp.push(cur);visited.add(cur);
       for(const nb of adj[cur])if(neutralSet.has(nb)&&!inQ.has(nb)){inQ.add(nb);queue.push(nb);}
     }
-    let escape=false;
-    outer:for(const c of comp){
-      for(const nb of adj[c])if(owner[nb]!==-1&&owner[nb]!==p){escape=true;break outer;}
-      if(wallCell[c]){
-        for(const nb of adj[c])if(owner[nb]!==p&&!neutralSet.has(nb)){escape=true;break outer;}
-        // also check: wall cell with no non-neutral neighbors means it borders the outside
-        const nonNeutralNbs=adj[c].filter(nb=>!neutralSet.has(nb));
-        if(nonNeutralNbs.length===0){escape=true;break outer;}
+    const touchingPlayers=new Set();
+    for(const c of comp){
+      for(const nb of adj[c]){
+        if(owner[nb]!==-1)touchingPlayers.add(owner[nb]);
       }
     }
-    if(!escape)for(const c of comp)enclosed.push(c);
+    if(touchingPlayers.size===1&&touchingPlayers.has(p)){
+      for(const c of comp)enclosed.push(c);
+    }
   }
   return enclosed;
 }
 
-function applyEnclosures(){
+function applyEnclosures(p){
   let changed=false;
-  for(let p=0;p<3;p++){
-    const enc=findEnclosed(p);
-    if(enc.length){for(const c of enc)owner[c]=p;changed=true;}
-  }
-  if(changed)applyEnclosures();
+  const enc=findEnclosed(p);
+  if(enc.length){for(const c of enc)owner[c]=p;changed=true;}
+  if(changed)applyEnclosures(p);
 }
 
 function nextTurn(){
@@ -553,7 +534,7 @@ function handleClick(idx){
   if(gameOver)return;
   if(!getFrontier(currentPlayer).has(idx))return;
   owner[idx]=currentPlayer;
-  applyEnclosures();
+  applyEnclosures(currentPlayer);
   if(owner.every(o=>o!==-1))gameOver=true;
   else nextTurn();
   render();
