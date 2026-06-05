@@ -1,11 +1,11 @@
-# Triangle Territory
+# Nexus
 
 ## Run
 
 This game must be served over HTTP because it loads board files with `fetch()`.
 
 From the repo root:
-
+ß
 ```bash
 python3 -m http.server 8765
 ```
