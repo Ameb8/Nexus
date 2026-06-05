@@ -1,0 +1,61 @@
+<svg width="100%" viewBox="0 0 680 640" role="img" xmlns="http://www.w3.org/2000/svg">
+<title>Equilateral triangle with irregular cell subdivision</title>
+<desc>An equilateral triangle subdivided by a set of non-parallel chords connecting different edges, creating varied irregular polygonal cells with no tiny slivers. Cells are lightly filled with alternating tones.</desc>
+<defs>
+  <clipPath id="tri-clip">
+    <polygon points="340,40 34,590 646,590"/>
+  </clipPath>
+  <style>
+    .chord { stroke-width: 1.1; fill: none; stroke-linecap: round; }
+    .border { stroke-width: 3.5; fill: none; }
+    @media (prefers-color-scheme: light) {
+      .chord { stroke: #3a5a8c; stroke-opacity: 0.55; }
+      .border { stroke: #1a2e4a; }
+      .f1 { fill: #dce8f5; fill-opacity: 0.38; }
+      .f2 { fill: #c4d9ee; fill-opacity: 0.32; }
+      .f3 { fill: #e8f0fa; fill-opacity: 0.42; }
+      .f4 { fill: #b8cde6; fill-opacity: 0.28; }
+      .f5 { fill: #cfdff2; fill-opacity: 0.35; }
+    }
+    @media (prefers-color-scheme: dark) {
+      .chord { stroke: #7aafdd; stroke-opacity: 0.55; }
+      .border { stroke: #a8c8f0; }
+      .f1 { fill: #1a3a5c; fill-opacity: 0.45; }
+      .f2 { fill: #1e4570; fill-opacity: 0.38; }
+      .f3 { fill: #152e50; fill-opacity: 0.42; }
+      .f4 { fill: #224878; fill-opacity: 0.32; }
+      .f5 { fill: #183560; fill-opacity: 0.36; }
+    }
+  </style>
+</defs>
+
+<g clip-path="url(#tri-clip)">
+  <polygon class="f1" points="340,40 175.6,315 232,315 289,195 340,40"/>
+  <polygon class="f2" points="340,40 411,195 490,280 520,200 340,40"/>
+  <polygon class="f3" points="34,590 280,590 232,400 120,450"/>
+  <polygon class="f4" points="232,315 411,195 490,280 380,450 200,430"/>
+  <polygon class="f5" points="450,590 646,590 560,380 490,420"/>
+
+  <!-- AB→BC chords -->
+  <line class="chord" x1="303.3" y1="106"   x2="431.8" y2="590"/>
+  <line class="chord" x1="232.9" y1="232.5" x2="144.2" y2="590"/>
+  <line class="chord" x1="171.7" y1="342.5" x2="535.8" y2="590"/>
+  <line class="chord" x1="119.7" y1="436"   x2="278.8" y2="590"/>
+
+  <!-- BC→CA chords -->
+  <line class="chord" x1="187"   y1="590"   x2="590.9" y2="491"/>
+  <line class="chord" x1="340"   y1="590"   x2="425.7" y2="194"/>
+  <line class="chord" x1="462.4" y1="590"   x2="553.8" y2="425"/>
+  <line class="chord" x1="572.6" y1="590"   x2="477.7" y2="287.5"/>
+
+  <!-- AB→CA chords -->
+  <line class="chord" x1="272.7" y1="161"   x2="416.5" y2="177.5"/>
+  <line class="chord" x1="202.3" y1="287.5" x2="584.8" y2="480"/>
+  <line class="chord" x1="141.1" y1="397.5" x2="508.3" y2="342.5"/>
+  <line class="chord" x1="88.5"  y1="491"   x2="462.4" y2="260"/>
+  <line class="chord" x1="266.6" y1="590"   x2="163.5" y2="359"/>
+  <line class="chord" x1="529.7" y1="381"   x2="401.2" y2="590"/>
+</g>
+
+<polygon points="340,40 34,590 646,590" class="border"/>
+</svg>

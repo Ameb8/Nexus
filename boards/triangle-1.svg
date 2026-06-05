@@ -1,0 +1,90 @@
+<svg width="100%" viewBox="0 0 680 620" role="img" xmlns="http://www.w3.org/2000/svg">
+<title>Equilateral triangle with mirrored dividing lines</title>
+<desc>An equilateral triangle with 12 sets of lines mirrored across all three sides, creating a symmetric internal pattern. Outer border is thick, inner lines are thin.</desc>
+<defs>
+  <clipPath id="tri-clip">
+    <polygon points="340,50 46,572 634,572"/>
+  </clipPath>
+  <style>
+    .inner-line { stroke: #4a6fa5; stroke-opacity: 0.55; stroke-width: 0.9; fill: none; }
+    .outer-border { stroke: #1a2e4a; stroke-width: 3.5; fill: none; }
+    @media (prefers-color-scheme: dark) {
+      .inner-line { stroke: #7aafdd; stroke-opacity: 0.6; }
+      .outer-border { stroke: #a8c8f0; }
+    }
+  </style>
+</defs>
+
+<g clip-path="url(#tri-clip)">
+
+<!-- t = 0.07 -->
+<line x1="319.42" y1="86.54" x2="87.16" y2="572" class="inner-line"/>
+<line x1="87.16" y1="572" x2="589.42" y2="535.46" class="inner-line"/>
+<line x1="589.42" y1="535.46" x2="319.42" y2="86.54" class="inner-line"/>
+
+<!-- t = 0.14 -->
+<line x1="298.84" y1="123.08" x2="128.32" y2="572" class="inner-line"/>
+<line x1="128.32" y1="572" x2="544.84" y2="498.92" class="inner-line"/>
+<line x1="544.84" y1="498.92" x2="298.84" y2="123.08" class="inner-line"/>
+
+<!-- t = 0.21 -->
+<line x1="278.26" y1="159.62" x2="169.48" y2="572" class="inner-line"/>
+<line x1="169.48" y1="572" x2="500.26" y2="462.38" class="inner-line"/>
+<line x1="500.26" y1="462.38" x2="278.26" y2="159.62" class="inner-line"/>
+
+<!-- t = 0.28 -->
+<line x1="257.68" y1="196.16" x2="210.64" y2="572" class="inner-line"/>
+<line x1="210.64" y1="572" x2="455.68" y2="425.84" class="inner-line"/>
+<line x1="455.68" y1="425.84" x2="257.68" y2="196.16" class="inner-line"/>
+
+<!-- t = 0.35 -->
+<line x1="237.10" y1="232.70" x2="251.80" y2="572" class="inner-line"/>
+<line x1="251.80" y1="572" x2="411.10" y2="389.30" class="inner-line"/>
+<line x1="411.10" y1="389.30" x2="237.10" y2="232.70" class="inner-line"/>
+
+<!-- t = 0.42 -->
+<line x1="216.52" y1="269.24" x2="292.96" y2="572" class="inner-line"/>
+<line x1="292.96" y1="572" x2="366.52" y2="352.76" class="inner-line"/>
+<line x1="366.52" y1="352.76" x2="216.52" y2="269.24" class="inner-line"/>
+
+<!-- t = 0.50 -->
+<line x1="193.00" y1="311.00" x2="340.00" y2="572" class="inner-line"/>
+<line x1="340.00" y1="572" x2="487.00" y2="311.00" class="inner-line"/>
+<line x1="487.00" y1="311.00" x2="193.00" y2="311.00" class="inner-line"/>
+
+<!-- t = 0.58 -->
+<line x1="169.48" y1="352.76" x2="387.04" y2="572" class="inner-line"/>
+<line x1="387.04" y1="572" x2="463.48" y2="269.24" class="inner-line"/>
+<line x1="463.48" y1="269.24" x2="169.48" y2="352.76" class="inner-line"/>
+
+<!-- t = 0.65 -->
+<line x1="148.90" y1="389.30" x2="428.20" y2="572" class="inner-line"/>
+<line x1="428.20" y1="572" x2="442.90" y2="232.70" class="inner-line"/>
+<line x1="442.90" y1="232.70" x2="148.90" y2="389.30" class="inner-line"/>
+
+<!-- t = 0.72 -->
+<line x1="128.32" y1="425.84" x2="469.36" y2="572" class="inner-line"/>
+<line x1="469.36" y1="572" x2="422.32" y2="196.16" class="inner-line"/>
+<line x1="422.32" y1="196.16" x2="128.32" y2="425.84" class="inner-line"/>
+
+<!-- t = 0.79 -->
+<line x1="107.74" y1="462.38" x2="510.52" y2="572" class="inner-line"/>
+<line x1="510.52" y1="572" x2="401.74" y2="159.62" class="inner-line"/>
+<line x1="401.74" y1="159.62" x2="107.74" y2="462.38" class="inner-line"/>
+
+<!-- t = 0.86 -->
+<line x1="87.16" y1="498.92" x2="551.68" y2="572" class="inner-line"/>
+<line x1="551.68" y1="572" x2="381.16" y2="123.08" class="inner-line"/>
+<line x1="381.16" y1="123.08" x2="87.16" y2="498.92" class="inner-line"/>
+
+<!-- t = 0.93 -->
+<line x1="66.58" y1="535.46" x2="592.84" y2="572" class="inner-line"/>
+<line x1="592.84" y1="572" x2="360.58" y2="86.54" class="inner-line"/>
+<line x1="360.58" y1="86.54" x2="66.58" y2="535.46" class="inner-line"/>
+
+</g>
+
+<!-- Outer triangle border -->
+<polygon points="340,50 46,572 634,572" class="outer-border"/>
+
+</svg>
